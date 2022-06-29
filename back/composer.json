@@ -1,0 +1,17 @@
+{
+  "name": "other/testing-package",
+  "description": "A supper dupper package to fetch data from reqres",
+  "type": "project",
+  "minimum-stability": "dev",
+  "require": {
+    "samhk222/active-housing-reqres": "dev-master",
+    "slim/slim": "3.*",
+    "tuupola/cors-middleware": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/samhk222/active-housing-reqres.git"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+# https://github.com/sprintcube/docker-compose-lamp
+
+version: "3"
+
+services:
+  webserver:
+    build:
+      context: ./.docker/bin/webserver
+    container_name: "ACTIVEHOUSING-web"
+    restart: "always"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./back/.:/home/samu/public_html
+      - ./.docker/config/vhosts:/etc/apache2/sites-enabled
+      - ./.docker/logs/apache2:/var/log/apache2
+    networks:
+      static-network:
+        ipv4_address: 172.20.193.1
+    depends_on:
+      - mailhog
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - VIRTUAL_HOST="samuca.local"
+      - LOCALHOST_UID=1000
+      - LOCALHOST_USERNAME=${USER}
+      - PHP_IDE_CONFIG="serverName=PHPSTORM"
+
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.1.0/16
