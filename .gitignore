@@ -1,2 +1,3 @@
 /vendor/**
 .docker/logs**
+back/vendor/**
