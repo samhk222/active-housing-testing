@@ -5,8 +5,7 @@
   "minimum-stability": "dev",
   "require": {
     "samhk222/active-housing-reqres": "dev-master",
-    "slim/slim": "3.*",
-    "tuupola/cors-middleware": "dev-master"
+    "slim/slim": "3.*"
   },
   "repositories": [
     {
